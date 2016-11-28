@@ -34,17 +34,8 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="1defc174ec15d8546d90c0ecc253d9d307419814">
+        sha1="19cff4f15ee2785b19bc771a944f38df0ac960a9">
         <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_117909e613f31a61ccff8c07f253ebcdc05e418d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_8bd92c865663417f2a998e9f9e3207420b66eb71\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -66,15 +57,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_d128a43261dd35cab13a57be59f0294e8d268ea8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
@@ -93,15 +75,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\vp50277\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.6.2\f1bc476cc167b18e66c297df599b2377131a8947\gson-2.6.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="f1bc476cc167b18e66c297df599b2377131a8947">
-        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.6.2_c48fac274fcafe6f5e490ba997829540a7a33578\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -117,6 +90,60 @@
         revision="24.0.3"
         sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
         <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_a2215843854596af8240c259df457ea079f9423b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_235c2749e6a8c5013bd184fb75fd3a39bdfc364d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_9731a3689c2410ed6a4de6f27c9b3e3a9ac0c8d6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_cd1e131d26d78aed5fd9250d2903943389a31085\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_8bd92c865663417f2a998e9f9e3207420b66eb71\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_d128a43261dd35cab13a57be59f0294e8d268ea8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vp50277\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.6.2\f1bc476cc167b18e66c297df599b2377131a8947\gson-2.6.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f1bc476cc167b18e66c297df599b2377131a8947">
+        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.6.2_c48fac274fcafe6f5e490ba997829540a7a33578\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -147,15 +174,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_235c2749e6a8c5013bd184fb75fd3a39bdfc364d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -165,30 +183,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_9731a3689c2410ed6a4de6f27c9b3e3a9ac0c8d6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="e4a56e7406873179e0951622e993e6a02f232507">
+        sha1="8d011dffb0abe47e4a2a33bdbb7242f2e62fab54">
         <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_e9b817dfe803252ca0d410afb0c215f7a6b818f2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.3"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="C:\Users\vp50277\Desktop\Misael\pdi\TopGames\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_cd1e131d26d78aed5fd9250d2903943389a31085\classes.dex" />
     </item>
     <item
         is-multidex="true"
