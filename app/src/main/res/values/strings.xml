@@ -5,4 +5,16 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="main_title">El Ranking de los mejores Juegos</string>
+
+    <string name="main_description">En esta app puedes consultar información detallada de los mejores juegos en los últimos 3 años</string>
+
+    <string name="main_select">Selecciona un año:</string>
+
+    <string name="main_button1">2014</string>
+    <string name="main_button2">2015</string>
+    <string name="main_button3">2016</string>
+
+
 </resources>
