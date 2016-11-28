@@ -10,15 +10,16 @@ import android.view.View;
 import android.widget.Toast;
 
 public class ListActivity extends AppCompatActivity {
-
+    DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        dbHelper = new DBHelper(this);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        ListAdapter adapter = new ListAdapter(recyclerView.getContext());
+        ListAdapter adapter = new ListAdapter(getApplicationContext(),dbHelper.getAllGames());
         recyclerView.setAdapter(adapter);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
 

@@ -1,9 +1,6 @@
 package com.virtualcastle.topgames;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +8,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import static com.virtualcastle.topgames.ListAdapter.myClickListener;
+import com.android.volley.toolbox.ImageLoader;
+
+import java.util.List;
+
 
 /**
  * Adapter to display recycler view.
@@ -19,69 +19,66 @@ import static com.virtualcastle.topgames.ListAdapter.myClickListener;
 
 public class ListAdapter extends RecyclerView.Adapter<ViewHolder>{
 
-    public static MyClickListener myClickListener;
-
-    //TODO:FALTA LLENAR DATA DINAMICA, CREAR SINGLETON Y LLAMAR AL SERVIDOR
+    static MyClickListener myClickListener;
     //DATA
     private static final int LENGTH = 18;
-    private final String[] mPlaces;
-    private final String[] mPlaceDesc;
-    private final Drawable[] mPlaceAvators;
-
+    private List<Game> games;
+    private ImageLoader imageLoader;
+    private Context context;
     //INIT DATA
-    public ListAdapter(Context context) {
-        Resources resources = context.getResources();
-        mPlaces = resources.getStringArray(R.array.places);
-        mPlaceDesc = resources.getStringArray(R.array.place_desc);
-        TypedArray a = resources.obtainTypedArray(R.array.place_avator);
-        mPlaceAvators = new Drawable[a.length()];
-        for (int i = 0; i < mPlaceAvators.length; i++) {
-            mPlaceAvators[i] = a.getDrawable(i);
-        }
-        a.recycle();
+    ListAdapter(Context context, List<Game> games) {
+        this.games = games;
+        this.context = context;
     }
 
     //CREATE HOLDER
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()), parent);
+        return new ViewHolder( LayoutInflater.from(parent.getContext()), parent);
     }
     //INIT HOLDER
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.avator.setImageDrawable(mPlaceAvators[position % mPlaceAvators.length]);
-        holder.name.setText(mPlaces[position % mPlaces.length]);
-        holder.description.setText(mPlaceDesc[position % mPlaceDesc.length]);
+        imageLoader = VolleySingleton.getInstance(context).getImageLoader();
+        //imageLoader.get(games.getImageUrl(), ImageLoader.getImageListener(holder.image, R.mipmap.ic_launcher, android.R.drawable.ic_dialog_alert));
+
+      //  holder.image.setImageUrl(superHero.getImageUrl(), imageLoader);
+
+
+        // / holder.image.setImageBitmap(BitMapSingleton.getInstance().getBinaryImage(position));
+        holder.name.setText(games.get(position%games.size()).getName());
+        holder.rate.setText(games.get(position%games.size()).getConsole());
     }
 
     @Override
     public int getItemCount() {
-        return LENGTH;
+        return BitMapSingleton.getInstance().size();
     }
 
-    public interface MyClickListener {
+    interface MyClickListener {
         void onItemClick(int position, View v);
     }
 
-    public void setOnItemClickListener(MyClickListener myClickListener) {
-        ListAdapter.myClickListener = myClickListener;
+    void setOnItemClickListener(MyClickListener myClickListener2) {
+        ListAdapter.myClickListener = myClickListener2;
     }
 
 }
 
 class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-    public ImageView avator;
+    ImageView image;
     public TextView name;
-    public TextView description;
-    public ViewHolder(LayoutInflater inflater, ViewGroup parent) {
+    TextView rate;
+    ViewHolder(LayoutInflater inflater, ViewGroup parent) {
         super(inflater.inflate(R.layout.item_list, parent, false));
-        avator = (ImageView) itemView.findViewById(R.id.list_avatar);
+        image = (ImageView) itemView.findViewById(R.id.list_avatar);
         name = (TextView) itemView.findViewById(R.id.list_title);
-        description = (TextView) itemView.findViewById(R.id.list_desc);
+        rate = (TextView) itemView.findViewById(R.id.list_desc);
+        itemView.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
-        myClickListener.onItemClick(getAdapterPosition(), v);
+        ListAdapter.myClickListener.onItemClick(getAdapterPosition(), v);
     }
 }
 

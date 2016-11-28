@@ -1,5 +1,6 @@
 package com.virtualcastle.topgames;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,25 +29,34 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v){
+            String target = "";
             switch (v.getId()) {
                 case R.id.main_button1:
-                    // TODO Search game of 2014
-
+                    target = "/2014.json";
                     break;
                 case R.id.main_button2:
-                    // TODO Search game of 2015
-
+                    target = "/2015.json";
                     break;
                 case R.id.main_button3:
-                    // TODO Search game of 2016
-
+                    target = "/2016.json";
                     break;
             }
-            Intent ListActivity = new Intent(getApplicationContext(), ListActivity.class);
-            startActivity(ListActivity);
-            overridePendingTransition(R.anim.left_in, R.anim.left_out);
+            loadGamesFromSplash(getResources().getString(R.string.jsonUrl)+target);
         }
     };
+
+    public void loadGamesFromSplash(String url){
+        Intent intent = new Intent(getApplicationContext(),SplashActivity.class);
+        intent.putExtra("url",url);
+        startActivity(intent);
+    }
+
+    /*
+    broadcast
+     Intent ListActivity = new Intent(getApplicationContext(), ListActivity.class);
+            startActivity(ListActivity);
+            overridePendingTransition(R.anim.left_in, R.anim.left_out);
+     */
 
 
 }
