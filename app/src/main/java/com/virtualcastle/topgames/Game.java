@@ -6,7 +6,7 @@ public class Game {
     int position;
     String name;
     String console;
-    float rate;
+    String rate;
     String date;
     String type;
     public static abstract class GameTable implements BaseColumns {
@@ -39,7 +39,7 @@ public class Game {
         this.console = console;
     }
 
-    public void setRate(float rate) {
+    public void setRate(String rate) {
         this.rate = rate;
     }
 
@@ -55,7 +55,7 @@ public class Game {
         return console;
     }
 
-    public float getRate() {
+    public String getRate() {
         return rate;
     }
 

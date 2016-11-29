@@ -7,12 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-
+    DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         registerClickEvent();
+        dbHelper = new DBHelper(this);
     }
 
     public void registerClickEvent(){
@@ -41,7 +42,14 @@ public class MainActivity extends AppCompatActivity {
                     target = "/2016.json";
                     break;
             }
-            loadGamesFromSplash(getResources().getString(R.string.jsonUrl)+target);
+            if(!dbHelper.existType(target.substring(1,5))) { //sleep
+                loadGamesFromSplash(getResources().getString(R.string.jsonUrl) + target);
+            }
+            else{
+                Intent intent = new Intent(getApplicationContext(),ListActivity.class);
+                intent.putExtra("type",target.substring(1,5));
+                startActivity(intent);
+            }
         }
     };
 
@@ -50,13 +58,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("url",url);
         startActivity(intent);
     }
-
-    /*
-    broadcast
-     Intent ListActivity = new Intent(getApplicationContext(), ListActivity.class);
-            startActivity(ListActivity);
-            overridePendingTransition(R.anim.left_in, R.anim.left_out);
-     */
 
 
 }

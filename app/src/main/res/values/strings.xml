@@ -21,5 +21,9 @@
 
     <string name="jsonUrl">http://afagenciadigital.com/jsons</string>
 
+    <string name="fecha_card">Fecha: </string>
+    <string name="rate_card">rate: </string>
+    <string name="console">console: </string>
+    <string name="card_button">Volver</string>
 
 </resources>

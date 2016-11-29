@@ -3,7 +3,6 @@ package com.virtualcastle.topgames;
 import android.app.IntentService;
 import android.content.Intent;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
@@ -11,9 +10,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageRequest;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 public class ConnectToServerService extends IntentService {
@@ -84,9 +81,9 @@ public class ConnectToServerService extends IntentService {
     public void HandleResponse(String url,JsonObject response){
         String jsoArrayName = url.substring(url.lastIndexOf("/")+1,url.lastIndexOf("/")+5);
         JsonArray jsonArray = response.getAsJsonArray(jsoArrayName);
-
         storeJsonInDB(jsonArray, jsoArrayName);
-
+        returnToSplashActivity();
+        /*
         String urlImage = url.substring(0,url.lastIndexOf("/")+1);
         urlImage = urlImage + jsoArrayName + "/";
         cont = 0;
@@ -95,13 +92,12 @@ public class ConnectToServerService extends IntentService {
         for (JsonElement jsonE : jsonArray) {
             try {
                 JsonObject json = jsonE.getAsJsonObject();
-                returnToSplashActivity();
                 //StoreImage(json.get("position").getAsInt(),urlImage);
             }
             catch (Exception e){
                 e.printStackTrace();
             }
-        }
+        }*/
     }
 
     public void storeJsonInDB(JsonArray jsonArray, String jsoArrayName){

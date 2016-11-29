@@ -19,6 +19,7 @@ import java.util.TimerTask;
 public class SplashActivity extends AppCompatActivity {
 
     private BroadcastReceiver bReceiverLoad;
+    public static String currentType = "";
 
     // Set the duration of the splash screen
     private static final long SPLASH_SCREEN_DELAY = 3000;
@@ -40,14 +41,19 @@ public class SplashActivity extends AppCompatActivity {
         };
         IntentFilter intentFilterLoad = new IntentFilter();
         intentFilterLoad.addAction("loadIsReady");
-        registerReceiver(bReceiverLoad, intentFilterLoad);
+        try {
+            registerReceiver(bReceiverLoad, intentFilterLoad);
+        }
+        catch(Exception e){
 
-      //  BitMapSingleton.getInstance().reset(); //TODO: resetear cuando se almacenen las imagenes
+        }
+
         Intent intentReceiver = null;
 
         intentReceiver = getIntent();
         String url = intentReceiver.getStringExtra("url");
         if(url!=null){ //viene de otra actividad
+            currentType = url.substring(url.lastIndexOf("/")+1,url.lastIndexOf("/")+5);
             ConnectToServerService.startActionGetJson(SplashActivity.this,url);
         }
         else{ //inicio de la app
@@ -71,9 +77,10 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void callListActivity(){
-        Intent mainIntent = new Intent().setClass(SplashActivity.this, MainActivity.class);
+        Intent listActivity = new Intent().setClass(SplashActivity.this, ListActivity.class);
         //mainIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        getApplicationContext().startActivity(mainIntent);
+        listActivity.putExtra("type",currentType);
+        startActivity(listActivity);
         finish();
     }
 

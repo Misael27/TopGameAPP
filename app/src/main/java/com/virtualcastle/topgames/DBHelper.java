@@ -13,6 +13,8 @@ import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.category;
+
 public class DBHelper extends SQLiteOpenHelper {
     private SQLiteDatabase db;
 
@@ -72,8 +74,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 Game game = new Game();
                 game.setPosition(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_POSITION))));
                 game.setName(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_NAME)));
-                game.setConsole(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_NAME)));
-                game.setRate(Float.parseFloat(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_NAME))));
+                game.setConsole(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_CONSOLE)));
+                game.setRate(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_RATE)));
                 game.setDate(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_DATE)));
                 game.setType(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_TYPE)));
                 games.add(game);
@@ -94,7 +96,7 @@ public class DBHelper extends SQLiteOpenHelper {
                     game.setPosition(json.get("position").getAsInt());
                     game.setName(json.get("name").getAsString());
                     game.setConsole(json.get("console").getAsString());
-                    game.setRate(json.get("rate").getAsFloat());
+                    game.setRate(String.valueOf(json.get("rate").getAsFloat()));
                     game.setDate(json.get("date").getAsString());
                     game.setType(type);
                     addGame(game);
@@ -116,7 +118,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(Game.GameTable.COLUMN_POSITION, String.valueOf(game.getPosition()));
         values.put(Game.GameTable.COLUMN_NAME, game.getName());
         values.put(Game.GameTable.COLUMN_CONSOLE, game.getConsole());
-        values.put(Game.GameTable.COLUMN_RATE, String.valueOf(game.getRate()));
+        values.put(Game.GameTable.COLUMN_RATE, game.getRate());
         values.put(Game.GameTable.COLUMN_DATE, game.getDate());
         values.put(Game.GameTable.COLUMN_TYPE, game.getType());
 
@@ -124,9 +126,83 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void deleteAllPoll(){
+    public void deleteAllGames(){
         db = getWritableDatabase();
         db.delete(Game.GameTable.TABLE_NAME, null, null);
         db.close();
     }
+
+    public Boolean existType(String target){
+        Boolean retorno = false;
+        db = getReadableDatabase();
+
+        List<Game> games = new ArrayList<>();
+        String[] project = {
+                Game.GameTable.COLUMN_POSITION,
+                Game.GameTable.COLUMN_NAME,
+                Game.GameTable.COLUMN_CONSOLE,
+                Game.GameTable.COLUMN_RATE,
+                Game.GameTable.COLUMN_DATE,
+                Game.GameTable.COLUMN_TYPE
+        };
+
+        Cursor cursor;
+        cursor = db.query(Game.GameTable.TABLE_NAME,
+                project,
+                Game.GameTable.COLUMN_TYPE + " = '" + target + "'",
+                null,
+                null,
+                null,
+                null
+        );
+        if (cursor.moveToFirst()) {
+            retorno = true;
+        }
+        cursor.close();
+        db.close();
+
+        return retorno;
+    }
+
+    public List<Game> getGameByType(String target){
+
+        db = getReadableDatabase();
+
+        List<Game> games = new ArrayList<>();
+        String[] project = {
+                Game.GameTable.COLUMN_POSITION,
+                Game.GameTable.COLUMN_NAME,
+                Game.GameTable.COLUMN_CONSOLE,
+                Game.GameTable.COLUMN_RATE,
+                Game.GameTable.COLUMN_DATE,
+                Game.GameTable.COLUMN_TYPE
+        };
+
+        Cursor cursor;
+        cursor = db.query(Game.GameTable.TABLE_NAME,
+                project,
+                Game.GameTable.COLUMN_TYPE + " = '" + target + "'",
+                null,
+                null,
+                null,
+                null
+        );
+        if (cursor.moveToFirst()) {
+            do {
+                Game game = new Game();
+                game.setPosition(Integer.parseInt(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_POSITION))));
+                game.setName(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_NAME)));
+                game.setConsole(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_CONSOLE)));
+                game.setRate(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_RATE)));
+                game.setDate(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_DATE)));
+                game.setType(cursor.getString(cursor.getColumnIndex(Game.GameTable.COLUMN_TYPE)));
+                games.add(game);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+
+        return games;
+    }
+
 }

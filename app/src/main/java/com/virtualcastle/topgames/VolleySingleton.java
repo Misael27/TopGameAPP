@@ -4,12 +4,17 @@ import android.content.Context;
 import android.graphics.Bitmap;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.Cache;
+import com.android.volley.Network;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -54,14 +59,12 @@ public class VolleySingleton {
 
     public RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
-            // getApplicationContext() is key, it keeps you from leaking the
-            // Activity or BroadcastReceiver if someone passes one in.
-            mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
-            /*Cache cache = new DiskBasedCache(mCtx.getCacheDir(), 10 * 1024 * 1024);
+
+            Cache cache = new DiskBasedCache(mCtx.getCacheDir(), 10 * 1024 * 1024);
             Network network = new BasicNetwork(new HurlStack());
-            mRequestQueue = new RequestQueue(cache, network);
+            mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
             // Don't forget to start the volley request queue
-            mRequestQueue.start();*/
+            mRequestQueue.start();
         }
         return mRequestQueue;
     }
